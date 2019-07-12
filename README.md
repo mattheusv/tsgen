@@ -1,8 +1,8 @@
-# tsgen [![Build Status](https://travis-ci.org/msalcantara/tsgen.svg?branch=master)](https://travis-ci.org/msalcantara/tsgen)
+# tsgen [![Build Status](https://travis-ci.org/msalcantara/tsgen.svg?branch=master)](https://travis-ci.org/msalcantara/tsgen) [![coverage](https://s3.amazonaws.com/assets.coveralls.io/badges/coveralls_25.svg)](https://coveralls.io/github/msalcantara/tsgen)
  TimeSeries generator
 
 ## Instalation
- - `$ git clone http://github.com/msalcantara/tsgen`
+ - `$ git clone https://github.com/msalcantara/tsgen`
  - `$ python -m venv venv`
  - `$ source venv/bin/activate`
  - `$ python setup.py install`
