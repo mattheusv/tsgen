@@ -8,7 +8,7 @@ jobs:
   include:
     - stage: test
       script:
-       - pip install -r requirements
+       - pip install -r requirements.txt
        - python3 -m unittest tests/*.py
     
     - stage: build
