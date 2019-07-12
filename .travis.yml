@@ -6,10 +6,14 @@ jobs:
   include:
     - stage: test
       script:
-       - pip install -r requirements.txt
+       - pip install -r requirements.txt coverage coveralls
        - python3 -m unittest tests/*.py
+       - coverage run --rcfile .coveragerc setup.py test
     
     - stage: build
       script:
        - python3 setup.py build
        - python setup.py install
+
+after_success:
+  - coveralls
