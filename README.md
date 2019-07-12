@@ -1,4 +1,4 @@
-# tsgen [![Build Status](https://travis-ci.org/msalcantara/tsgen.svg?branch=master)](https://travis-ci.org/msalcantara/tsgen) [![coverage](https://s3.amazonaws.com/assets.coveralls.io/badges/coveralls_25.svg)](https://coveralls.io/github/msalcantara/tsgen)
+# tsgen [![Build Status](https://travis-ci.org/msalcantara/tsgen.svg?branch=master)](https://travis-ci.org/msalcantara/tsgen) [![Coverage Status](https://coveralls.io/repos/github/msalcantara/tsgen/badge.svg?branch=master)](https://coveralls.io/github/msalcantara/tsgen?branch=master)
  TimeSeries generator
 
 ## Instalation
