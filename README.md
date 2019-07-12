@@ -1,4 +1,4 @@
-# tsgen
+# tsgen [![Build Status](https://travis-ci.org/msalcantara/tsgen.svg?branch=master)](https://travis-ci.org/msalcantara/tsgen)
  TimeSeries generator
 
 ## Instalation
