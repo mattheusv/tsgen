@@ -44,7 +44,12 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=["Click==7.0", "pandas==0.24.2", "numpy==1.16.4"],
+    install_requires=[
+        "Click==7.0",
+        "pandas==0.24.2",
+        "numpy==1.16.4",
+        "GitPython==2.1.11",
+    ],
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.

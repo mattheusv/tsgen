@@ -7,15 +7,18 @@ from os import path
 from .gen import TimeSerieGenerator
 
 
-def version():
+def version(ctx, param, value):
+    if not value or ctx.resilient_parsing:
+        return
     try:
         version_file = path.join(path.abspath(path.dirname(__file__)), "VERSION")
         with open(version_file) as f:
-            return f.read().strip()
+            click.echo(f"v{f.read().strip()}")
     except FileNotFoundError:
-        raise FileNotFoundError(
+        click.echo(
             "error: tsgen not installed correctly\n Try running python setup.py install"
         )
+    ctx.exit()
 
 
 @click.command()
@@ -41,13 +44,15 @@ def version():
 @click.option(
     "--high", default=None, required=True, help="Largest data to be generated"
 )
-@click.option("--version", type=bool, default=False, is_flag=True, help="Show version")
+@click.option(
+    "--version", is_flag=True, callback=version, expose_value=False, is_eager=True
+)
 @click.argument("timeserie-name", required=True)
 def main(date_end, **kwargs):
     try:
         if date_end is None:
             date_end = pd.Timestamp.now(tz=kwargs["tz"])
-        ts_gen = TimeSerieGenerator(
+        TimeSerieGenerator(
             kwargs["date_start"],
             date_end,
             kwargs["freq"],

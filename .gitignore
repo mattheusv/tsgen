@@ -130,5 +130,6 @@ dmypy.json
 # repo files
 *.csv
 .vscode/
+tsgen/VERSION
 
 # End of https://www.gitignore.io/api/python
