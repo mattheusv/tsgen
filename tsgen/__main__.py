@@ -45,10 +45,10 @@ def version(ctx, param, value):
 )
 @click.option("--low", default=0, show_default=True, help="Lowest data to be generated")
 @click.option(
-    "--high", default=None, required=True, help="Largest data to be generated"
+    "--high", default=100, type=int, help="Largest data to be generated"
 )
 @click.option(
-    "--version", is_flag=True, callback=version, expose_value=False, is_eager=True
+    "--version", is_flag=True, callback=version, expose_value=False, is_eager=True, help="Show version"
 )
 @click.argument("timeserie-name", required=True)
 def main(date_end, **kwargs):
