@@ -11,13 +11,18 @@ class TimeSerieGeneratorTestCase(TestCase):
             date_start="1990-01-01",
             date_end="1990-01-02",
             freq="D",
-            tz="UTC",
-            low=0,
-            high=100,
             ts_name="ts.test",
         )
         df = ts_gen.generate_df()
         self.assertEqual(len(df), 2)
+
+    def test_generate_df_name(self):
+        ts_gen = TimeSerieGenerator(
+            date_start="1990-01-01",
+            ts_name="ts.test_generate_df_name",
+        )
+        df = ts_gen.generate_df()
+        self.assertEqual(df["ts_name"][0], ts_gen.ts_name)
 
     def test_export_df(self):
         ts_gen = TimeSerieGenerator(
