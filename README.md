@@ -9,7 +9,7 @@
  - `$ tsgen --help`
 
 ## Usage
- - `$ tsgen --date-start 2019-01-01 --high 100 cpu.idle`
+ - `$ tsgen -s 2019-01-01 cpu.idle`
  - `$ head cpu.idle_19-07-11.csv`
  ```csv
  timestamp,value,ts_name
@@ -37,7 +37,7 @@
  2019-07-11 00:00:00+00:00,98,cpu.idle
  ```
  #### With frequency in minute by minute?
-  - `$ tsgen --date-start 2019-01-01 --high 100 --freq min cpu.idle`
+  - `$ tsgen -s 2019-01-01 -f min cpu.idle`
   - `$ head cpu.idle_19-07-11.csv`
   ```csv
   timestamp,value,ts_name
@@ -53,19 +53,19 @@
   ```
  ### For more commands
  ```
-Usage: tsgen [OPTIONS] TIMESERIE_NAME
+ Usage: tsgen [OPTIONS] TIMESERIE_NAME
 
 Options:
-  --date-start TIMESTAMP  Date start of timeseries data [YYYY-MM-DD]/[YYYY-MM-
-                          DD HH:MM:SS]  [required]
-  --date-end TIMESTAMP    Date end of timeseries data [YYYY-MM-DD]/[YYYY-MM-DD
-                          HH:MM:SS]  [default: now]
-  --freq TEXT             Frequency of dates, e.g. '5H'  [default: D]
-  --tz TEXT               Timezone of dates  [default: UTC]
-  --low INTEGER           Lowest data to be generated  [default: 0]
-  --high TEXT             Largest data to be generated  [required]
-  --version               Show version
-  --help                  Show this message and exit.
+  -s, --date-start TIMESTAMP  Date start of timeseries data [YYYY-MM-
+                              DD]/[YYYY-MM-DD HH:MM:SS]  [required]
+  -e, --date-end TIMESTAMP    Date end of timeseries data [YYYY-MM-DD]/[YYYY-
+                              MM-DD HH:MM:SS]  [default: now]
+  -f, --freq TEXT             Frequency of dates, e.g. '5H'  [default: D]
+  --tz TEXT                   Timezone of dates  [default: UTC]
+  --low INTEGER               Lowest data to be generated  [default: 0]
+  --high INTEGER              Largest data to be generated
+  --version                   Show version
+  --help                      Show this message and exit.
  ```
  ### Frequency Alias
  - B	business day frequency
@@ -95,6 +95,14 @@ Options:
  - L, ms	milliseconds
  - U, us	microseconds
  - N	nanoseconds
+
+ ## Use with dependencie in project
+ ```python
+ from tsgen.gen import TimeSerieGenerator
+ ts = TimeSerieGenerator('1990-01-01')
+ df = ts.generate_df()
+ print(df.head())
+ ```
 
 ## License
  [MIT](https://raw.githubusercontent.com/tebeka/selenium/master/LICENSE) license.
