@@ -23,18 +23,21 @@ def version(ctx, param, value):
 
 @click.command()
 @click.option(
+    "-s",
     "--date-start",
     required=True,
     type=pd.Timestamp,
     help="Date start of timeseries data [YYYY-MM-DD]/[YYYY-MM-DD HH:MM:SS]",
 )
 @click.option(
+    "-e",
     "--date-end",
     default=None,
     type=pd.Timestamp,
     help="Date end of timeseries data [YYYY-MM-DD]/[YYYY-MM-DD HH:MM:SS]  [default: now]",
 )
 @click.option(
+    "-f",
     "--freq", default="D", show_default=True, help="Frequency of dates, e.g. '5H'"
 )
 @click.option(
