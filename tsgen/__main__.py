@@ -1,9 +1,11 @@
 import sys
-import click
-import pandas as pd
-import numpy as np
-from pytz.exceptions import UnknownTimeZoneError
 from os import path
+
+import click
+import numpy as np
+import pandas as pd
+from pytz.exceptions import UnknownTimeZoneError
+
 from .gen import TimeSerieGenerator
 
 
@@ -37,27 +39,29 @@ def version(ctx, param, value):
     help="Date end of timeseries data [YYYY-MM-DD]/[YYYY-MM-DD HH:MM:SS]  [default: now]",
 )
 @click.option(
-    "-f",
-    "--freq", default="D", show_default=True, help="Frequency of dates, e.g. '5H'"
+    "-f", "--freq", default="D", show_default=True, help="Frequency of dates, e.g. '5H'"
 )
 @click.option(
     "--tz", type=str, default="UTC", show_default=True, help="Timezone of dates"
 )
 @click.option("--low", default=0, show_default=True, help="Lowest data to be generated")
+@click.option("--high", default=100, type=int, help="Largest data to be generated")
 @click.option(
-    "--high", default=100, type=int, help="Largest data to be generated"
-)
-@click.option(
-    "--version", is_flag=True, callback=version, expose_value=False, is_eager=True, help="Show version"
+    "--version",
+    is_flag=True,
+    callback=version,
+    expose_value=False,
+    is_eager=True,
+    help="Show version",
 )
 @click.argument("timeserie-name", required=True)
-def main(date_end, **kwargs):
+def main(**kwargs):
     try:
-        if date_end is None:
-            date_end = pd.Timestamp.now(tz=kwargs["tz"])
+        if "date_end" not in kwargs:
+            kwargs["date_end"] = pd.Timestamp.now(tz=kwargs["tz"])
         TimeSerieGenerator(
             kwargs["date_start"],
-            date_end,
+            kwargs["date_end"],
             kwargs["freq"],
             kwargs["tz"],
             kwargs["low"],
