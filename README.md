@@ -105,4 +105,4 @@ Options:
  ```
 
 ## License
- [MIT](https://raw.githubusercontent.com/tebeka/selenium/master/LICENSE) license.
+ [MIT](https://raw.githubusercontent.com/msalcantara/tsgen/master/LICENSE) license.
