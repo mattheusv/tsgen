@@ -47,7 +47,7 @@ setup(
     install_requires=[
         "Click==7.0",
         "pandas==0.24.2",
-        "numpy==1.16.4",
+        "numpy==1.22.0",
         "GitPython==2.1.11",
     ],
     # If there are data files included in your packages that need to be
